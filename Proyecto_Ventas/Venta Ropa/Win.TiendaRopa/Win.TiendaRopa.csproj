@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{06208E17-640C-43EA-B67D-90D0282B1939}</ProjectGuid>
+    <ProjectGuid>{7EDA6CE7-4EE2-4CE8-B665-9323E9CE85ED}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Win.Ventas</RootNamespace>
-    <AssemblyName>Win.Ventas</AssemblyName>
+    <RootNamespace>Win.TiendaRopa</RootNamespace>
+    <AssemblyName>Win.TiendaRopa</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -44,14 +44,6 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -66,12 +58,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form2Factura.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form2Factura.Designer.cs">
-      <DependentUpon>Form2Factura.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,17 +70,11 @@
     <Compile Include="FormFactura.Designer.cs">
       <DependentUpon>FormFactura.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMujer.cs">
+    <Compile Include="FormMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMujer.Designer.cs">
-      <DependentUpon>FormMujer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormHombres.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormHombres.Designer.cs">
-      <DependentUpon>FormHombres.cs</DependentUpon>
+    <Compile Include="FormMenu.Designer.cs">
+      <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -102,43 +82,37 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMenú.cs">
+    <Compile Include="FormProductos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMenú.Designer.cs">
-      <DependentUpon>FormMenú.cs</DependentUpon>
+    <Compile Include="FormProductos.Designer.cs">
+      <DependentUpon>FormProductos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNiños.cs">
+    <Compile Include="FormNuevaventa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormNiños.Designer.cs">
-      <DependentUpon>FormNiños.cs</DependentUpon>
+    <Compile Include="FormNuevaventa.Designer.cs">
+      <DependentUpon>FormNuevaventa.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form2Factura.resx">
-      <DependentUpon>Form2Factura.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormFactura.resx">
       <DependentUpon>FormFactura.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMujer.resx">
-      <DependentUpon>FormMujer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormHombres.resx">
-      <DependentUpon>FormHombres.cs</DependentUpon>
+    <EmbeddedResource Include="FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMenú.resx">
-      <DependentUpon>FormMenú.cs</DependentUpon>
+    <EmbeddedResource Include="FormProductos.resx">
+      <DependentUpon>FormProductos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNiños.resx">
-      <DependentUpon>FormNiños.cs</DependentUpon>
+    <EmbeddedResource Include="FormNuevaventa.resx">
+      <DependentUpon>FormNuevaventa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -151,29 +125,25 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\BL.Ventas.Clientes.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.CategoriasBL.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.Cliente.datasource" />
     <None Include="Properties\DataSources\BL.Ventas.ClientesBL.datasource" />
     <None Include="Properties\DataSources\BL.Ventas.Contexto.datasource" />
     <None Include="Properties\DataSources\BL.Ventas.DatosdeInicio.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.Departamento.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.DepartamentosBL.datasource" />
     <None Include="Properties\DataSources\BL.Ventas.Factura.datasource" />
     <None Include="Properties\DataSources\BL.Ventas.FacturaBL.datasource" />
     <None Include="Properties\DataSources\BL.Ventas.FacturaDetalle.datasource" />
-    <None Include="Properties\DataSources\BL.Ventas.Hombre.datasource" />
-    <None Include="Properties\DataSources\BL.Ventas.HombresBL.datasource" />
-    <None Include="Properties\DataSources\BL.Ventas.Mujer.datasource" />
-    <None Include="Properties\DataSources\BL.Ventas.MujeresBL+Mujer.datasource" />
-    <None Include="Properties\DataSources\BL.Ventas.MujeresBL.datasource" />
-    <None Include="Properties\DataSources\BL.Ventas.Niños.datasource" />
-    <None Include="Properties\DataSources\BL.Ventas.NiñosBL.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.Producto.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.ProductosBL.datasource" />
     <None Include="Properties\DataSources\BL.Ventas.Resultado.datasource" />
-    <None Include="Properties\DataSources\BL.Ventas.ResultadoClientes.datasource" />
-    <None Include="Properties\DataSources\BL.Ventas.ResultadoFactura.datasource" />
-    <None Include="Properties\DataSources\BL.Ventas.ResultadoMujer.datasource" />
-    <None Include="Properties\DataSources\BL.Ventas.ResultadoNiños.datasource" />
     <None Include="Properties\DataSources\BL.Ventas.Seccion.datasource" />
     <None Include="Properties\DataSources\BL.Ventas.SeccionBL.datasource" />
     <None Include="Properties\DataSources\BL.Ventas.SeguridadBL.datasource" />
-    <None Include="Properties\DataSources\BL.Ventas.Usuarios.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.Tipo.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.TiposBL.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.Usuario.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -188,16 +158,40 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\seguridad.jpg" />
+    <None Include="Resources\Secure.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BL.Ventas\BL.Ventas.csproj">
-      <Project>{d5e58a8d-28b8-461e-829e-95cc6d8de33c}</Project>
+      <Project>{0b0a7f01-d059-48d9-8393-b97d5158b7a6}</Project>
       <Name>BL.Ventas</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ropa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ropa1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\seguridadlogin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\seguridadlog.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ropa2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3381.jpg_wh860.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clothing-650375_1280.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\colorful-clothes-fluffy-store-summer-dress-warm-hd-wallpaper-preview.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tienda-ropa-efecto-borroso_23-2148164717.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1039003.jpg" />
@@ -206,13 +200,10 @@
     <None Include="Resources\actualidad_241740064_129998126_1099x564.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\colorful-clothes-fluffy-store-summer-dress-warm-hd-wallpaper-preview.jpg" />
+    <None Include="Resources\2020051417290385643.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\clothing-650375_1280.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tienda-ropa-efecto-borroso_23-2148164717.jpg" />
+    <None Include="Resources\23385.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

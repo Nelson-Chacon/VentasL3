@@ -73,7 +73,7 @@ namespace Win.Ventas
 
         private void facturaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var formFactura = new FormFactura();
+            var formFactura = new Form2Factura();
             formFactura.MdiParent = this;
             formFactura.Show();
         }

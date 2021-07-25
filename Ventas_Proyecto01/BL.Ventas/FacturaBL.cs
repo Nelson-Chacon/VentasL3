@@ -72,11 +72,10 @@ namespace BL.Ventas
             {
                 return resultadoFactura;
             }
-
+            _contexto.SaveChanges();
 
             CalcularExistenciaMujer(factura);
             
-            _contexto.SaveChanges();
 
             resultadoFactura.Exitoso = true;
 
@@ -141,14 +140,14 @@ namespace BL.Ventas
                 resultadoFactura.Exitoso = false;
             }
 
-            foreach (var detalle in factura.FacturaDetalle)
-            {
-                if (detalle.MujerId == 0)
-                {
-                    resultadoFactura.Mensaje = "Seleccione productos validos";
-                    resultadoFactura.Exitoso = false;
-                }
-            }
+            //foreach (var detalle in factura.FacturaDetalle)
+            //{
+            //    if (detalle.MujerId == 0 || detalle.NiñoId == 0)
+            //    {
+            //        resultadoFactura.Mensaje = "Seleccione productos validos";
+            //        resultadoFactura.Exitoso = false;
+            //    }
+            //}
 
             return resultadoFactura;
         }
@@ -158,23 +157,32 @@ namespace BL.Ventas
         {
             if (factura !=null)
             {
-                double subtotal = 0;
+                double subtotal1 = 0;
+                double subtotal2 = 0;
+
 
                 foreach (var detalle in factura.FacturaDetalle)
                 {
-                    var producto = _contexto.Mujeres.Find(detalle.MujerId);
-                    if (producto != null)
-                    {
-                        detalle.Precio = producto.Precio;
-                        detalle.Total = detalle.Cantidad * producto.Precio;
+                    var producto1 = _contexto.Mujeres.Find(detalle.MujerId);
+                    var producto2 = _contexto.Niño.Find(detalle.NiñoId);
 
-                        subtotal += detalle.Total;
+                    if (producto1 != null )
+                    {
+                        detalle.Precio = producto1.Precio;
+                        detalle.Total = detalle.Cantidad * producto1.Precio;
+                        subtotal1 += detalle.Total;
+                    }
+                    else if (producto2 != null)
+                    {
+                        detalle.Precio = producto2.Precio;
+                        detalle.Total = detalle.Cantidad * producto2.Precio;
+                        subtotal2 += detalle.Total;
                     }
                 }
 
-                factura.Subtotal = subtotal;
-                factura.Impuesto = subtotal * 0.15;
-                factura.Total = subtotal + factura.Impuesto;
+                factura.Subtotal = subtotal1+ subtotal2;
+                factura.Impuesto = factura.Subtotal * 0.15;
+                factura.Total = factura.Subtotal + factura.Impuesto;
             }
         }
 
@@ -223,6 +231,8 @@ namespace BL.Ventas
         public int Id { get; set; }
         public int MujerId { get; set; }
         public Mujer Mujer { get; set; }
+        public int NiñoId { get; set; }
+        public Niños Niños { get; set; }
         public int Cantidad { get; set; }
         public double Precio { get; set; }
         public double Total { get; set; }

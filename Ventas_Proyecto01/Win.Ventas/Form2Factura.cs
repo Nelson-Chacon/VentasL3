@@ -11,19 +11,17 @@ using System.Windows.Forms;
 
 namespace Win.Ventas
 {
-    public partial class FormFactura : Form
+    public partial class Form2Factura : Form
     {
-        FacturaBL _facturaBL;
+        FacturaBL  _facturaBL;
         ClientesBL _clientesBL;
-        MujeresBL _mujeresBL;
-        NiñosBL _niñosBL;
+        MujeresBL  _mujeresBL;
+        NiñosBL    _niñosBL;
 
-
-        public FormFactura()
+        public Form2Factura()
         {
-            
             InitializeComponent();
-            
+
             _facturaBL = new FacturaBL();
             listadeFacturasBindingSource.DataSource = _facturaBL.ObtenerFacturas();
 
@@ -37,13 +35,14 @@ namespace Win.Ventas
             listaProdNiñosBindingSource.DataSource = _niñosBL.ObtenerProductos();
         }
 
-        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)//boton de agregar
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
             _facturaBL.AgregarFactura();
             listadeFacturasBindingSource.MoveLast();
 
             DeshabilitarHabilitarBotones(false);
         }
+
         private void DeshabilitarHabilitarBotones(bool valor)
         {
             bindingNavigatorMoveFirstItem.Enabled = valor;
@@ -62,8 +61,8 @@ namespace Win.Ventas
         {
             listadeFacturasBindingSource.EndEdit();//finaliza edicion
 
-            var factura= (Factura)listadeFacturasBindingSource.Current;//Obtenemos las propiedades del producto actual de la clase Hombres
-            
+            var factura = (Factura)listadeFacturasBindingSource.Current;//Obtenemos las propiedades del producto actual de la clase Hombres
+
             var resultado = _facturaBL.GuardarFactura(factura);
 
             if (resultado.Exitoso == true)
@@ -84,15 +83,6 @@ namespace Win.Ventas
             _facturaBL.CancelarCambios();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            var factura = (Factura)listadeFacturasBindingSource.Current;
-            var facturaDetalle = (FacturaDetalle)facturaDetalleBindingSource.Current;
-            _facturaBL.RemoverFacturaDetalle(factura, facturaDetalle);
-
-            DeshabilitarHabilitarBotones(false);
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             var factura = (Factura)listadeFacturasBindingSource.Current;
@@ -100,13 +90,19 @@ namespace Win.Ventas
             DeshabilitarHabilitarBotones(false);
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var factura = (Factura)listadeFacturasBindingSource.Current;
+            var facturaDetalle = (FacturaDetalle)facturaDetalleBindingSource.Current;
+            _facturaBL.RemoverFacturaDetalle(factura, facturaDetalle);
+        }
 
-        private void facturaDetalleDataGridView_DataError_1(object sender, DataGridViewDataErrorEventArgs e)
+        private void facturaDetalleDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.ThrowException = false;
         }
 
-        private void facturaDetalleDataGridView_CellEndEdit_1(object sender, DataGridViewCellEventArgs e)
+        private void facturaDetalleDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             var factura = (Factura)listadeFacturasBindingSource.Current;
             _facturaBL.CalcularFactura(factura);
@@ -140,15 +136,16 @@ namespace Win.Ventas
             {
                 MessageBox.Show("Ocurrio un erro al anular la factura");
 
-                
+
             }
         }
 
         private void listadeFacturasBindingSource_CurrentChanged(object sender, EventArgs e)
         {
+
             var factura = (Factura)listadeFacturasBindingSource.Current;
 
-            if (factura != null && factura.Id !=0 && factura.Activo == false)
+            if (factura != null && factura.Id != 0 && factura.Activo == false)
             {
                 label1.Visible = true;
             }
@@ -158,11 +155,5 @@ namespace Win.Ventas
             }
         }
 
-        private void FormFactura_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        
     }
 }
