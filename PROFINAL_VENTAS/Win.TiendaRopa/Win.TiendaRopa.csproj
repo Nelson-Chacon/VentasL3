@@ -89,12 +89,6 @@
     <Compile Include="FormFactura.Designer.cs">
       <DependentUpon>FormFactura.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLoginNuevo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormLoginNuevo.Designer.cs">
-      <DependentUpon>FormLoginNuevo.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,9 +153,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormFactura.resx">
       <DependentUpon>FormFactura.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormLoginNuevo.resx">
-      <DependentUpon>FormLoginNuevo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>

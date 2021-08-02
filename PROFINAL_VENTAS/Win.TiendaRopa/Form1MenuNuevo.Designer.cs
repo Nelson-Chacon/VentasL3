@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1MenuNuevo));
             this.panel3 = new System.Windows.Forms.Panel();
-            this.Etiqueta = new System.Windows.Forms.Label();
             this.Hora = new System.Windows.Forms.Label();
+            this.Etiqueta = new System.Windows.Forms.Label();
             this.panelLateralizquierdo = new System.Windows.Forms.Panel();
             this.panelSubmenuReportes = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -78,19 +78,6 @@
             this.panel3.TabIndex = 1;
             this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDown);
             // 
-            // Etiqueta
-            // 
-            this.Etiqueta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.Etiqueta.AutoSize = true;
-            this.Etiqueta.Font = new System.Drawing.Font("Tw Cen MT", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Etiqueta.ForeColor = System.Drawing.Color.LightCyan;
-            this.Etiqueta.Location = new System.Drawing.Point(6, 9);
-            this.Etiqueta.Name = "Etiqueta";
-            this.Etiqueta.Size = new System.Drawing.Size(0, 74);
-            this.Etiqueta.TabIndex = 1;
-            this.Etiqueta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // Hora
             // 
             this.Hora.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -99,10 +86,25 @@
             this.Hora.BackColor = System.Drawing.Color.Transparent;
             this.Hora.Font = new System.Drawing.Font("Tw Cen MT Condensed", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Hora.ForeColor = System.Drawing.Color.LightCyan;
-            this.Hora.Location = new System.Drawing.Point(622, 9);
+            this.Hora.Location = new System.Drawing.Point(660, 9);
             this.Hora.Name = "Hora";
-            this.Hora.Size = new System.Drawing.Size(0, 74);
+            this.Hora.Size = new System.Drawing.Size(32, 74);
             this.Hora.TabIndex = 0;
+            this.Hora.Text = "\r\n";
+            // 
+            // Etiqueta
+            // 
+            this.Etiqueta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.Etiqueta.AutoSize = true;
+            this.Etiqueta.Font = new System.Drawing.Font("Tw Cen MT", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Etiqueta.ForeColor = System.Drawing.Color.LightCyan;
+            this.Etiqueta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Etiqueta.Location = new System.Drawing.Point(-13, 9);
+            this.Etiqueta.Name = "Etiqueta";
+            this.Etiqueta.Size = new System.Drawing.Size(0, 74);
+            this.Etiqueta.TabIndex = 1;
+            this.Etiqueta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panelLateralizquierdo
             // 
@@ -424,7 +426,7 @@
             // 
             this.panelContenedor.AutoSize = true;
             this.panelContenedor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panelContenedor.BackColor = System.Drawing.Color.LightGray;
+            this.panelContenedor.BackColor = System.Drawing.Color.MintCream;
             this.panelContenedor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelContenedor.BackgroundImage")));
             this.panelContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;

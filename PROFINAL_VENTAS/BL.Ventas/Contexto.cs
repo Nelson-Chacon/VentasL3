@@ -10,7 +10,7 @@ namespace BL.Ventas
 {
     public class Contexto: DbContext
     {
-        public Contexto(): base("VENTAROPA")
+        public Contexto(): base("TIENDADEROPA")
         {
 
         }

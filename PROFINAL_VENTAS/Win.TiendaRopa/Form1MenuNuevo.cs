@@ -157,12 +157,12 @@ namespace Win.TiendaRopa
         private void panelContenedor_Click(object sender, EventArgs e)
         {
             Etiqueta.Text = "INICIO";
-            Hora.Visible = true;
+            
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new Form1MenuNuevo());
+            Etiqueta.Text = "INICIO";
         }
     }
 }
