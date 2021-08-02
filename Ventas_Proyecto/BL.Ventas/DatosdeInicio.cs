@@ -7,60 +7,83 @@ using System.Threading.Tasks;
 
 namespace BL.Ventas
 {
-    public class DatosdeInicio: CreateDatabaseIfNotExists<Contexto>
+    // Agregando datos de inicio para combobox categoria y tipo
+
+    public class DatosdeInicio : CreateDatabaseIfNotExists<Contexto> 
     {
+
         protected override void Seed(Contexto contexto)
         {
-
-            var usuarioAdmin = new Usuarios();
+            var usuarioAdmin = new Usuario();
             usuarioAdmin.Nombre = "admin";
-            usuarioAdmin.Contraseña = "tienda";
-            contexto.usuarios.Add(usuarioAdmin);
+            usuarioAdmin.Contrasena ="tienda";
+
+            contexto.Usuarios.Add(usuarioAdmin);
 
 
-            //Datos de seccion de departamentos
+            // Categorias de ropa
+
+            var departamento1 = new Departamento();
+            departamento1.Descripcion = "Niño";
+            contexto.Departamentos.Add(departamento1);
+
+            var departamento2 = new Departamento();
+            departamento2.Descripcion = "Niña";
+            contexto.Departamentos.Add(departamento2);
+
+            var departamento3 = new Departamento();
+            departamento3.Descripcion = "Hombre";
+            contexto.Departamentos.Add(departamento3);
+
+            var departamento4 = new Departamento();
+            departamento4.Descripcion = "Mujer";
+            contexto.Departamentos.Add(departamento4);
+
+            var departamento5 = new Departamento();
+            departamento5.Descripcion = "Deporte";
+            contexto.Departamentos.Add(departamento5);
+
+            // Tipos de ropa
+
             var seccion1 = new Seccion();
-            seccion1.Descripcion = "Camisas Formales";
-            contexto.SeccionRopa.Add(seccion1);
+            seccion1.Descripcion = "Vestidos";
+            contexto.Secciones.Add(seccion1);
 
             var seccion2 = new Seccion();
-            seccion2.Descripcion = "Camisa Polo";
-            contexto.SeccionRopa.Add(seccion2);
+            seccion2.Descripcion = "Trajes";
+            contexto.Secciones.Add(seccion2);
 
             var seccion3 = new Seccion();
-            seccion3.Descripcion = "Camisetas";
-            contexto.SeccionRopa.Add(seccion3);
+            seccion3.Descripcion = "Camisas";
+            contexto.Secciones.Add(seccion3);
 
             var seccion4 = new Seccion();
-            seccion4.Descripcion = "Jeans";
-            contexto.SeccionRopa.Add(seccion4);
+            seccion4.Descripcion = "Shorts";
+            contexto.Secciones.Add(seccion4);
 
             var seccion5 = new Seccion();
-            seccion5.Descripcion = "Pantalon Formal";
-            contexto.SeccionRopa.Add(seccion5);
+            seccion5.Descripcion = "Faldas";
+            contexto.Secciones.Add(seccion5);
 
             var seccion6 = new Seccion();
-            seccion6.Descripcion = "Ropa Deportiva";
-            contexto.SeccionRopa.Add(seccion6);
+            seccion6.Descripcion = "Pantalones";
+            contexto.Secciones.Add(seccion6);
 
             var seccion7 = new Seccion();
-            seccion7.Descripcion = "Ropa Interior";
-            contexto.SeccionRopa.Add(seccion7);
-            
+            seccion7.Descripcion = "Calzado";
+            contexto.Secciones.Add(seccion7);
+
             var seccion8 = new Seccion();
-            seccion8.Descripcion = "Calzado Formal";
-            contexto.SeccionRopa.Add(seccion8);
+            seccion8.Descripcion = "Ropa interior";
+            contexto.Secciones.Add(seccion8);
 
             var seccion9 = new Seccion();
-            seccion9.Descripcion = "Calzado Deportivo";
-            contexto.SeccionRopa.Add(seccion9);
-
-            var seccion10 = new Seccion();
-            seccion10.Descripcion = "Joyeria";
-            contexto.SeccionRopa.Add(seccion10);
-
-
+            seccion9.Descripcion = "Joyeria";
+            contexto.Secciones.Add(seccion9);
+    
+            
             base.Seed(contexto);
+
         }
     }
 }

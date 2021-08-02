@@ -6,12 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace BL.Ventas
 {
     public class Contexto: DbContext
     {
-        public Contexto():base("TIENDADEROPA")
+        public Contexto(): base("VENTAROPA")
         {
 
         }
@@ -19,21 +18,16 @@ namespace BL.Ventas
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            Database.SetInitializer(new DatosdeInicio());
+            Database.SetInitializer(new DatosdeInicio()); // Agrega datos de inicio a la base de datos despues de eliminarla
         }
-        public DbSet<Usuarios> usuarios { get; set; }
 
-        public DbSet<Niños> Niño { get; set; }
-
-        public DbSet<Hombre> Hombres { get; set; }
-
-        public DbSet<Mujer> Mujeres { get; set; }
-
-        public DbSet<Seccion> SeccionRopa { get; set; }
-
-        public DbSet<Clientes> Clientes { get; set; }
-
-
+        
+        public DbSet<Producto> Productos { get; set; }
+        public DbSet<Departamento> Departamentos { get; set; }
+        public DbSet<Seccion> Secciones { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Factura> Facturas { get; set; }
 
     }
 }
