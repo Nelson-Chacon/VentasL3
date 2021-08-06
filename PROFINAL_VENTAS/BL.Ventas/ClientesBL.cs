@@ -102,7 +102,7 @@ namespace BL.Ventas
     }
 
     
-    public class Cliente  // Propiedades de clientes, incompleto...
+    public class Cliente  
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
@@ -118,6 +118,7 @@ namespace BL.Ventas
         public Cliente()
         {
             Activo = true;
+            FechaNacimiento = DateTime.Now;
         }
 
     }

@@ -1,37 +1,43 @@
-﻿using System;
-using BL.Ventas;
+﻿using BL.Ventas;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Win.TiendaRopa
 {
-    public partial class FormClientes : Form
+    public partial class FormUsuarios : Form
     {
-        ClientesBL _clientesBL;
-        EstadosBL _estadosBL;
-
-        public FormClientes()
+        SeguridadBL _seguridadBL;
+        public FormUsuarios()
         {
             InitializeComponent();
-
-            _clientesBL = new ClientesBL();
-            listaClientesBindingSource.DataSource = _clientesBL.ObtenerClientes();
-
-            _estadosBL = new EstadosBL();
-            listaEstadosBindingSource.DataSource = _estadosBL.ObtenerEstados();
+            _seguridadBL = new SeguridadBL();
+            listadeUsuariosBindingSource.DataSource = _seguridadBL.ObtenerUsuario();
         }
 
-        private void listaClientesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void FormUsuarios_Load(object sender, EventArgs e)
         {
-            listaClientesBindingSource.EndEdit();
-            var cliente = (Cliente)listaClientesBindingSource.Current;
 
-            var resultado = _clientesBL.GuardarCliente(cliente);
+        }
+
+        private void listadeUsuariosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            listadeUsuariosBindingSource.EndEdit();
+            var usuario= (Usuario)listadeUsuariosBindingSource.Current;
+
+            var resultado = _seguridadBL.GuardarUsuario(usuario);
 
             if (resultado.Exitoso == true)
             {
-                listaClientesBindingSource.ResetBindings(false);
+                listadeUsuariosBindingSource.ResetBindings(false);
                 DeshabilitarHabilitarBotones(true);
-                MessageBox.Show("Cliente guardado");
+                MessageBox.Show("Usuario guardado");
             }
             else
             {
@@ -41,15 +47,11 @@ namespace Win.TiendaRopa
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
-
-
-            _clientesBL.AgregarCliente();
-            listaClientesBindingSource.MoveLast();
+            _seguridadBL.AgregarUsuario();
+            listadeUsuariosBindingSource.MoveLast();
 
             DeshabilitarHabilitarBotones(false);
         }
-
-
 
         private void DeshabilitarHabilitarBotones(bool valor)
         {
@@ -61,7 +63,7 @@ namespace Win.TiendaRopa
 
             bindingNavigatorAddNewItem.Enabled = valor;
             bindingNavigatorDeleteItem.Enabled = valor;
-            toolStripButtoncancelar.Visible = !valor;
+            toolStripButtonCancelar.Visible = !valor;
         }
 
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
@@ -79,11 +81,11 @@ namespace Win.TiendaRopa
 
         private void Eliminar(int id)
         {
-            var resultado = _clientesBL.EliminarCliente(id);
+            var resultado = _seguridadBL.EliminarUsuario(id);
 
             if (resultado == true)
             {
-                listaClientesBindingSource.ResetBindings(false);
+                listadeUsuariosBindingSource.ResetBindings(false);
             }
             else
             {
@@ -91,29 +93,15 @@ namespace Win.TiendaRopa
             }
         }
 
-        private void toolStripButtoncancelar_Click(object sender, EventArgs e)
+        private void toolStripButtonCancelar_Click(object sender, EventArgs e)
         {
-            _clientesBL.CancelarCambios();
+            _seguridadBL.CancelarCambios();
             DeshabilitarHabilitarBotones(true);
-        }
-
-        private void FormClientes_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
             this.Close();
-            
-        }
-
-        private void listaClientesBindingNavigator_RefreshItems(object sender, EventArgs e)
-        {
-
         }
     }
-    }
-
-
-
+}

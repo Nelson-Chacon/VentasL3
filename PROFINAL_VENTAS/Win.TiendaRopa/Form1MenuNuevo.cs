@@ -131,6 +131,7 @@ namespace Win.TiendaRopa
         {
             var formLogin = new FormLogin();
             formLogin.ShowDialog();
+            toolStripStatusLabelUsuario.Text = "Usuario: " + Utilidades.NombreUsuario;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -163,6 +164,16 @@ namespace Win.TiendaRopa
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Etiqueta.Text = "INICIO";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DeshabilitarPaneles();
+
+            AbrirFormulario(new FormUsuarios());
+
+            Etiqueta.Text = "Usuarios";
+
         }
     }
 }
